@@ -1,0 +1,14 @@
+{
+  "firstName": "Automation",
+  "lastName": "Tester",
+  "dateOfBirth": "1990-01-01",
+  "country": "US",
+  "postalCode": "10001",
+  "houseNumber": "123",
+  "street": "Main Street",
+  "city": "New York",
+  "state": "New York",
+  "phone": "2125550100",
+  "email": "automation.tester@example.com",
+  "password": "N3w!Qz7@Lm2026"
+}

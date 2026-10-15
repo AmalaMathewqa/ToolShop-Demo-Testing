@@ -1,0 +1,38 @@
+{
+  "title": "Practice Software Testing - Toolshop - v5.0",
+  "routes": {
+    "login": "/auth/login",
+    "register": "/auth/register",
+    "contact": "/contact",
+    "invoices": "/account/invoices"
+  },
+  "products": {
+    "available": "Pliers",
+    "unavailable": "Long Nose Pliers",
+    "search": "Hammer",
+    "defaultAfterReset": "Combination Pliers"
+  },
+  "priceRange": {
+    "minimum": 10,
+    "maximum": 50,
+    "initialMinimum": 1,
+    "initialMaximum": 100,
+    "allowedMinimum": 0,
+    "allowedMaximum": 200
+  },
+  "sortOptions": [
+    { "value": "name,asc", "type": "name", "order": "asc" },
+    { "value": "name,desc", "type": "name", "order": "desc" },
+    { "value": "price,asc", "type": "price", "order": "asc" },
+    { "value": "price,desc", "type": "price", "order": "desc" }
+  ],
+  "cart": {
+    "singleItemQuantity": "1"
+  },
+  "comparison": {
+    "noProductsMessage": "No products selected for comparison. Add products from the overview page."
+  },
+  "invoice": {
+    "paymentMethodLabel": "Credit Card"
+  }
+}

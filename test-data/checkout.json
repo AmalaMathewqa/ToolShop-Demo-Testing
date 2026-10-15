@@ -1,0 +1,30 @@
+{
+  "product": {
+    "name": "Pliers"
+  },
+  "quantityTest": {
+    "quantity": 2
+  },
+  "billingAddress": {
+    "country": "US",
+    "postalCode": "10001",
+    "houseNumber": "123",
+    "street": "Main Street",
+    "city": "New York",
+    "state": "New York"
+  },
+  "payment": {
+    "method": "credit-card",
+    "cardNumber": "4111-1111-1111-1111",
+    "expirationDate": "12/2030",
+    "cvv": "123",
+    "cardHolderName": "Taylor Morgan"
+  },
+  "failedPayment": {
+    "method": "credit-card",
+    "cardNumber": "4111",
+    "expirationDate": "12/2030",
+    "cvv": "000",
+    "cardHolderName": "Taylor Morgan"
+  }
+}
