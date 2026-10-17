@@ -11,23 +11,39 @@ class PriceFilterPage {
         this.productPrices = page.locator('[data-test="product-price"]');
     }
 
-    async setPriceRange(minimum, maximum) {
-        await this.minimumPriceHandle.focus();
-        const currentMinimum = Number(await this.minimumPriceHandle.getAttribute('aria-valuenow'));
-        const minimumKey = minimum >= currentMinimum ? 'ArrowRight' : 'ArrowLeft';
-        for (let value = 0; value < Math.abs(minimum - currentMinimum); value++) {
-            await this.minimumPriceHandle.press(minimumKey);
-            await this.page.waitForTimeout(10);
-        }
 
-        await this.maximumPriceHandle.focus();
-        const currentMaximum = Number(await this.maximumPriceHandle.getAttribute('aria-valuenow'));
-        const maximumKey = maximum >= currentMaximum ? 'ArrowRight' : 'ArrowLeft';
-        for (let value = 0; value < Math.abs(maximum - currentMaximum); value++) {
-            await this.maximumPriceHandle.press(maximumKey);
-            await this.page.waitForTimeout(10);
+
+    //I created a reusable function to move the price slider. It checks the current value, decides which arrow key to press, and moves the slider to the target value. I use the same function for both minimum and maximum prices to avoid repeating code
+
+
+    async moveSlider(handle, target) {
+        const current = Number(await handle.getAttribute('aria-valuenow'));
+        const key = target >= current ? 'ArrowRight' : 'ArrowLeft';
+
+        for (let value = 0; value < Math.abs(target - current); value++) {
+            await handle.press(key);
         }
     }
+
+
+    //Home → Minimum value;  End → Maximum value
+
+
+    async setPriceRange(minimum, maximum) {
+    await this.minimumPriceHandle.focus();
+    await this.minimumPriceHandle.press('Home');
+
+    for (let i = 0; i < minimum; i++) {
+        await this.minimumPriceHandle.press('ArrowRight');
+    }
+
+    await this.maximumPriceHandle.focus();
+    await this.maximumPriceHandle.press('End');
+
+    for (let i = 100; i > maximum; i--) {
+        await this.maximumPriceHandle.press('ArrowLeft');
+    }
+}
 
     async getDisplayedPrices() {
         await this.productPrices.first().waitFor();

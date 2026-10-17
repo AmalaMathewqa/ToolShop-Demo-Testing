@@ -12,9 +12,14 @@ test('submits the contact us form successfully', async ({ page }) => {
 
     await contactPage.open();
     await expect(contactPage.submitButton).toBeVisible();
+    await contactPage.uploadFile();
     await contactPage.submitForm(contactData);
 
     await expect(contactPage.confirmation).toBeVisible();
-    await expect(contactPage.confirmation).toHaveText(/\S+/);
+    await expect(contactPage.confirmation).toContainText(contactData.validationmsg);    
+    
+    //Verify that there are no <form> elements on the page.
+
+
     await expect(contactPage.form).toHaveCount(0);
 });

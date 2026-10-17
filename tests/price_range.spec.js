@@ -3,9 +3,14 @@ const Homepage = require('../page-objects/PriceFilterpage');
 const applicationData = require('../test-data/application.json');
 const { takeScreenshot } = require('../utils/screenshot');
 
+
+
 test.afterEach(async ({ page }, testInfo) => {
   await takeScreenshot(page, `${testInfo.project.name}-${testInfo.title}`, testInfo);
 });
+
+
+
 test('displays only products within the selected price range', async ({ page }) => {
   test.setTimeout(120000);
   const homepage = new Homepage(page);
@@ -23,3 +28,6 @@ test('displays only products within the selected price range', async ({ page }) 
       );
   }).toBe(true);
 });
+
+
+//I used expect.poll() because the product list may take time to update after applying the price filter. It repeatedly checks that at least one product is displayed and that every displayed price falls within the selected range. The test passes when both conditions are satisfied before the timeout.

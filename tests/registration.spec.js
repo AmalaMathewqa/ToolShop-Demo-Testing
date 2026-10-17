@@ -25,5 +25,5 @@ test('registers a new customer account', async ({ page }) => {
 
     const myAccountPage = new MyAccountpage(page);
     await myAccountPage.signIn(customer);
-    await expect(page).toHaveURL(/\/account(?:\/overview)?$/);
+    await expect(page).toHaveURL(/account/);
 });

@@ -23,6 +23,11 @@ class Sortmodule {
     return this.productNames.allTextContents();
   }
 
+  //replace(/[^0-9.-]+/g, '') removes characters other than digits, decimal points and minus signs.
+
+   //Number.parseFloat() converts the cleaned string into a number.
+
+
   async getPrices() {
     const prices = await this.productPrices.allTextContents();
     return prices.map((price) => Number.parseFloat(price.replace(/[^0-9.-]+/g, '')));

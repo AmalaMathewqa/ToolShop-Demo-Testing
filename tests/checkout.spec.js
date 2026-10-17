@@ -35,8 +35,7 @@ test('rejects a failed credit card payment', async ({ page }) => {
     const { checkoutPage } = await prepareCheckout(page);
 
     await checkoutPage.fillCreditCardPayment(checkoutData.failedPayment);
-    await expect(checkoutPage.creditCardNumber).toHaveValue(checkoutData.failedPayment.cardNumber);
-    //await expect(checkoutPage.finishButton).toBeDisabled();
+    await expect(checkoutPage.finishButton).toBeDisabled();
 });
 
 test('completes checkout and verifies its invoice in My Account', async ({ page }) => {

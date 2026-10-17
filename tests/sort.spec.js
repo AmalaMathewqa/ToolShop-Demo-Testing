@@ -29,3 +29,5 @@ for (const option of sortOptions) {
   });
 
 }
+
+//open the page and select the required sorting option. If it is name sorting, I retrieve the product names and normalize them by removing extra spaces and converting them to lowercase. Then I create a copy and sort it alphabetically to get the expected order. If descending order is selected, I reverse the expected array. Finally, I compare the displayed names with the expected order using Playwright's expect().toEqual() assertion.

@@ -6,6 +6,8 @@ const { takeScreenshot } = require('../utils/screenshot');
 test.afterEach(async ({ page }, testInfo) => {
   await takeScreenshot(page, `${testInfo.project.name}-${testInfo.title}`, testInfo);
 });
+
+
 test('Open the homepage', async ({ page }) => {
   const homepage = new Homepage(page);
 
@@ -40,6 +42,8 @@ test('comparison page for a selected product', async ({ page }) => {
 
   await homepage.openComparison();
 
+  //- $ means the URL must end with that text.
+  
   await expect(page).toHaveURL(/\/comparison$/);
 
   await homepage.clearComparison();

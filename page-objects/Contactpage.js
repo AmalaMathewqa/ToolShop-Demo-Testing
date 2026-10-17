@@ -8,6 +8,7 @@ class Contactpage {
         this.email = page.locator('[data-test="email"]');
         this.subject = page.locator('[data-test="subject"]');
         this.message = page.locator('[data-test="message"]');
+        this.attachment = page.locator('[data-test="attachment"]');
         this.submitButton = page.locator('[data-test="contact-submit"]');
         this.confirmation = page.locator('[role="alert"].alert-success');
         this.form = page.locator('form');
@@ -24,6 +25,16 @@ class Contactpage {
         await this.subject.selectOption({ label: contact.subject });
         await this.message.fill(contact.message);
         await this.submitButton.click();
+    }
+
+    //Playwright simulates selecting an empty text file named attachment.txt
+    
+    async uploadFile() {
+        await this.attachment.setInputFiles({
+            name: 'attachment.txt',
+            mimeType: 'text/plain',
+            buffer: Buffer.alloc(0)
+        });
     }
 }
 

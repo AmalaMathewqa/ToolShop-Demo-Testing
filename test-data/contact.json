@@ -3,5 +3,6 @@
   "lastName": "Tester",
   "email": "automation.tester.20261010@example.com",
   "subject": "Customer service",
-  "message": "I would like more information about this product, including availability and delivery options."
+  "message": "I would like more information about this product, including availability and delivery options.",
+  "validationmsg": "Thanks for your message"
 }

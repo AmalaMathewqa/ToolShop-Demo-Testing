@@ -45,15 +45,7 @@ class Checkoutpage {
         await this.proceedAsCustomerButton.click();
     }
 
-    async continueAsGuest(guest) {
-        await this.guestTab.click();
-        await this.guestEmail.fill(guest.email);
-        await this.guestFirstName.fill(guest.firstName);
-        await this.guestLastName.fill(guest.lastName);
-        await this.guestSubmitButton.click();
 
-        await this.proceedAsGuestButton.click();
-    }
 
     async enterBillingAddress(address) {
         await this.country.selectOption(address.country);
